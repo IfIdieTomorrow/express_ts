@@ -1,17 +1,11 @@
 import express from "express";
 
+import App from "./config/app";
 import apiRouter from "./router/v1";
 
 const PORT_NUMBER: number = 4000;
 
-class App {
-  public application: express.Application;
-  constructor() {
-    this.application = express();
-  }
-}
-
-const app = new App().application;
+const app = App.getApplication();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
